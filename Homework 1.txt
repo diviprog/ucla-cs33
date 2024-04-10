@@ -1,0 +1,18 @@
+2.71
+
+A. This code does not implement sign extension as it masks out all the bits other than the two least significant bytes.
+
+B.
+int xbyte(packed_t word, int bytenum)
+{
+	int shift = 32 - bytenum << 3;
+	return ((word << shift) >> 24);
+} 
+
+2.82
+
+A. Yields 1. Negative shifts the direction of the inequality
+B. Yields 1. Left shifting by 4 is equivalent to multiplying by 16 making the two sides of the expression equivalent. Despite the overflow, the final answer for both the sides will be the same.
+C. If x=y=-1, the equation does not hold (1 != -1)
+D. If x = Umax and y = 0, the equation does not hold (Umax != 1)
+E. Yields 1. Left shifting replaces the empty spaces with 0, so the result of the shifts regardless of the two least significant bits of the value of x will always be <= x.
